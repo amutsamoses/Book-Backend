@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: center; // Center pagination controls
+  align-items: center;
+  margin-top: 20px;
+  padding-bottom: 10px; // Added bottom padding for better spacing from content below
+}
+
+.pagination button {
+  padding: 8px 16px; // Comfortable button size for interaction
+  margin: 0 10px; // Adequate spacing between buttons
+  background-color: #1a2938; // Deep and vibrant button color
+  color: #ffffff; // Changed to white for better contrast and readability
+  border: none;
+  border-radius: 5px; // Smooth rounded corners
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s; // Smooth transition for background and transform
+
+  &:hover:not(:disabled) {
+    background-color: #25415f; // Subtle change on hover
+    transform: translateY(-2px); // Lift effect on hover
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.6); // Focus ring for accessibility
+  }
+
+  &:active {
+    transform: translateY(1px); // Subtle press effect on click
+  }
+}
+
+.pagination button:disabled {
+  background-color: #646464; // Lighter grey to make disabled state more obvious
+  color: #ccc; // Lighter text color to indicate non-interactivity
+  cursor: not-allowed; // Change cursor to indicate disabled state
+}

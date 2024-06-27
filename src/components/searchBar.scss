@@ -1,0 +1,59 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  .search-input {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc; // Added subtle border for definition
+    border-radius: 4px;
+    width: 100%; // Responsive width
+    max-width: 500px; // Maximum width to maintain form factor
+    transition: border-color 0.3s, box-shadow 0.3s; // Smooth transitions for focus
+
+    &:focus {
+      border-color: #1dbaee; // Highlight focus with a different color
+      box-shadow: 0 0 8px rgba(29, 186, 238, 0.5); // Soft glow effect on focus
+      outline: none; // Remove default focus outline
+    }
+
+    &:hover {
+      border-color: #aaa; // Subtle hover effect on border
+    }
+  }
+
+  .search-button {
+    padding: 8px 16px;
+    background-color: #0c5069;
+    color: #f7f5f5; // Ensure high contrast for readability
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; // Smooth background transition and transform
+
+    &:hover {
+      background-color: #1dbaee; // Brighter color on hover
+      transform: scale(1.05); // Slightly enlarge button on hover
+    }
+
+    &:active {
+      transform: scale(0.95); // Button press effect
+    }
+  }
+}
+
+// Responsive behavior for smaller screens
+@media (max-width: 600px) {
+  .search {
+    flex-direction: column; // Stack input and button vertically on small screens
+
+    .search-input,
+    .search-button {
+      width: 90%; // Full width for small screens
+      margin: 10px auto; // Center and space out vertically
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.bookTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); // Enhanced shadow for better visual depth
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-size: 16px;
+    font-weight: bold; // Added bold for clearer header distinction
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); // Subtle text shadow for a lifted effect
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background-color: #f9f9f9; // Maintaining zebra striping for better readability
+    }
+
+    tr {
+      transition: background-color 0.2s ease-in-out; // Smooth transition for hover effect
+
+      &:hover {
+        background-color: #3ba847; // Bright color on hover for better visibility
+        transform: scale(1.02); // Slight scale to give feedback on hover
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Shadow for depth on hover
+      }
+
+      &:active {
+        background-color: #318837; // Darker shade when row is clicked
+      }
+    }
+  }
+
+  // Responsive behavior for smaller screens
+  @media (max-width: 768px) {
+    th,
+    td {
+      padding: 10px 8px; // Smaller padding for compact display
+    }
+
+    th {
+      font-size: 14px; // Smaller font size for headers on small screens
+    }
+  }
+}
