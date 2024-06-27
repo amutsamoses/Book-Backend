@@ -1,0 +1,64 @@
+###
+GET http://localhost:3000/api/ok
+
+###
+GET http://localhost:3000/api/books
+
+###
+GET http://localhost:3000/api/books/1
+
+###
+GET http://localhost:3000/api/books/2
+
+###
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "Don Quixote",
+    "author": "Miguel de Cervantes",
+    "year": "1605"
+}
+
+###
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "year": "2003"
+}
+
+###
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "year": "1987"
+}
+
+###
+PUT http://localhost:3000/api/books/21
+Content-Type: application/json
+
+{
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "year": "1980"
+}
+
+###
+POST http://localhost:3000/api/books
+Content-Type: application/json
+
+{
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "year": "1951"
+}
+
+###
+DELETE http://localhost:3000/api/books/22
