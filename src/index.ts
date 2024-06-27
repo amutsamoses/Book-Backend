@@ -9,11 +9,12 @@ import { html, raw } from "hono/html";
 import { trimTrailingSlash } from "hono/trailing-slash";
 
 import { bookRouter } from "./books/book.router";
+import { prometheus } from "@hono/prometheus";
 
 const app = new Hono().basePath("/api");
 
 app.use(
-  "*",
+  "/*",
   cors({
     origin: "*",
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
@@ -25,6 +26,8 @@ const customTimeoutException = () =>
   new HTTPException(408, {
     message: "Request Timeout",
   });
+
+const { printMetrics, registerMetrics } = prometheus();
 
 app.use(logger());
 app.use(csrf());
@@ -38,6 +41,10 @@ app.get("/timeout", async (c) => {
   await new Promise((resolve) => setTimeout(resolve, 11000));
   return c.text("data after 5 second", 200);
 });
+
+app.get("/metrics", printMetrics);
+
+app.use("*", registerMetrics);
 
 app.route("/", bookRouter);
 
